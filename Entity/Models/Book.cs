@@ -12,18 +12,18 @@ namespace Entity.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookId { get; set; }
-        [Column(name: "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string Title { get; set; }
-        [Column(name: "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(50)")]
         public string Type {  get; set; }
         public int PubId { get; set; }
         [Range(0, double.MaxValue, ErrorMessage ="Cannot enter money less than 0")]
         public decimal Price { get; set; }
-        [Column(name: "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Advance {  get; set; }
         public decimal Royality { get; set; }
         public int ytd_sales { get; set; }
-        [Column(name:"nvarchar(300)")]
+        [Column(TypeName ="nvarchar(300)")]
         public string Notes { get; set; }
         public DateTime PublishedDate {  get; set; }
 

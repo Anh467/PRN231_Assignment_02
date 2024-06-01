@@ -12,13 +12,13 @@ namespace Entity.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PubId { get; set; }
-        [Column(name: "nvarchar(200)")]
+        [Column(TypeName = "nvarchar(200)")]
         public string PublisherName { get; set; }
-        [Column(name: "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? City { get; set; }
-        [Column(name: "varchar(20)")]
+        [Column(TypeName = "varchar(20)")]
         public string? State { get; set; }
-        [Column(name: "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Country { get; set; } 
 
         public virtual ICollection<User>? Users { get; set; }

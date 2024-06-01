@@ -14,17 +14,17 @@ namespace Entity.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-        [Column(name:"varchar(200)")]
+        [Column(TypeName ="varchar(200)")]
         public string EmailAddress { get; set; }
-        [Column(name: "varchar(100)")]
+        [Column(TypeName = "varchar(100)")]
         public string Password { get; set; }
-        [Column(name: "nvarchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string? Source { get; set; }
-        [Column(name: "varchar(50)")]
+        [Column(TypeName = "varchar(50)")]
         public string FirstName {  get; set; }
-        [Column(name: "varchar(50)")]
+        [Column(TypeName = "varchar(50)")]
         public string MiddleName { get; set; }
-        [Column(name: "varchar(50)")]
+        [Column(TypeName = "varchar(50)")]
         public string LastName { get; set; }
         public int RoleId { get; set; }
         public int PubId { get; set; }
