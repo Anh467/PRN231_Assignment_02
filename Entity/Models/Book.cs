@@ -26,5 +26,9 @@ namespace Entity.Models
         [Column(name:"nvarchar(300)")]
         public string Notes { get; set; }
         public DateTime PublishedDate {  get; set; }
+
+        [ForeignKey(nameof(PubId))]
+        public virtual Publisher? Publisher { get; set; }
+        public virtual ICollection<BookAuthor>? BookAuthors { get; set; }
     }
 }

@@ -28,5 +28,7 @@ namespace Entity.Models
         public string? Zip { get; set; }
         [Column(name: "nvarchar(200)")]
         public string EmailAddress { get; set; }
+
+        public virtual ICollection<BookAuthor>? BookAuthors { get; set; }
     }
 }

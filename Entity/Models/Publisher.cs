@@ -20,5 +20,8 @@ namespace Entity.Models
         public string? State { get; set; }
         [Column(name: "nvarchar(100)")]
         public string? Country { get; set; } 
+
+        public virtual ICollection<User>? Users { get; set; }
+        public virtual ICollection<Book>? Books { get; set; }
     }
 }

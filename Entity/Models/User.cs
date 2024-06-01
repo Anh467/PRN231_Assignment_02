@@ -30,5 +30,10 @@ namespace Entity.Models
         public int PubId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime HireDate {  get; set; }
+
+        [ForeignKey(nameof(RoleId))]
+        public virtual Role? Role { get; set; }
+        [ForeignKey(nameof(PubId))]
+        public virtual Publisher? Publisher { get; set; }
     }
 }
