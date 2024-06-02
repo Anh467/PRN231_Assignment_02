@@ -11,12 +11,12 @@ namespace Entity.Database
 {
     public class AppDBContext : DbContext
     {
-        DbSet<Author> Authors { get; set; }
-        DbSet<Book> Books { get; set; }
-        DbSet<BookAuthor> BookAuthors { get; set; }
-        DbSet<Publisher> Publishers { get; set; }
-        DbSet<Role> Roles { get; set; }
-        DbSet<User> Users { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public AppDBContext() { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

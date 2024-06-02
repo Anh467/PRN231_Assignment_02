@@ -1,6 +1,7 @@
 ﻿using DataAccess.interfaces;
 using Entity.Database;
 using Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,34 +33,41 @@ namespace DataAccess.DAO
             }
         }
 
-        public void AddAsync(Author entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Author> FindAsync(Expression<Func<Author, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Author> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Authors;
         }
 
-        public Author? GetById(int id)
+        public IEnumerable<Author> Find(Expression<Func<Author, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _context.Authors.Where(expression);
         }
 
-        public void Remove(int id)
+        public void Add(Author entity)
         {
-            throw new NotImplementedException();
+            _context.Authors.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(Author entity)
         {
-            throw new NotImplementedException();
+            _context.Authors.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public Author? GetById(int id)
+        {
+            return _context.Authors.SingleOrDefault(a=> a.AuthorID == id);
+        }
+
+        public void Remove(int id)
+        {
+            var author = GetById(id);
+            if (author == null)
+                throw new InvalidOperationException("Cannot find author");
+            _context.Authors.Remove(author);
+            _context.SaveChanges();
         }
     }
 }

@@ -37,12 +37,12 @@ namespace DataAccess.DAO
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> FindAsync(Expression<Func<User, bool>> expression)
+        public IEnumerable<User> Find(Expression<Func<User, bool>> expression)
         {
             throw new NotImplementedException();
         }
 
-        public void AddAsync(User entity)
+        public void Add(User entity)
         {
             throw new NotImplementedException();
         }

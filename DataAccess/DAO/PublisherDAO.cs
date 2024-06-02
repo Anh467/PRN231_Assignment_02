@@ -37,12 +37,12 @@ namespace DataAccess.DAO
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Publisher> FindAsync(Expression<Func<Publisher, bool>> expression)
+        public IEnumerable<Publisher> Find(Expression<Func<Publisher, bool>> expression)
         {
             throw new NotImplementedException();
         }
 
-        public void AddAsync(Publisher entity)
+        public void Add(Publisher entity)
         {
             throw new NotImplementedException();
         }

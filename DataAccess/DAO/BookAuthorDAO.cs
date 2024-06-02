@@ -1,6 +1,7 @@
 ﻿using DataAccess.interfaces;
 using Entity.Database;
 using Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class BookAuthorDAO : IDAO<BookAuthor>, IDAOBoth<Author>
+    public class BookAuthorDAO : IDAO<BookAuthor>, IDAOBoth<BookAuthor>
     {
         private static BookAuthorDAO instance = null;
         private static readonly object instanceLock = new object();
@@ -34,32 +35,39 @@ namespace DataAccess.DAO
 
         public IEnumerable<BookAuthor> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.BookAuthors;
         }
 
-        public IEnumerable<BookAuthor> FindAsync(Expression<Func<BookAuthor, bool>> expression)
+        public IEnumerable<BookAuthor> Find(Expression<Func<BookAuthor, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _context.BookAuthors.Where(expression);
         }
 
-        public void AddAsync(BookAuthor entity)
+        public void Add(BookAuthor entity)
         {
-            throw new NotImplementedException();
+            _context.BookAuthors.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(BookAuthor entity)
         {
-            throw new NotImplementedException();
+            _context.BookAuthors.Attach(entity);    
+            _context.Entry(entity).State  = EntityState.Modified;
+            _context.SaveChanges();
         }
 
-        public Author? GetById(int id1, int id2)
+        public BookAuthor? GetById(int id1, int id2)
         {
-            throw new NotImplementedException();
+            return _context.BookAuthors.SingleOrDefault(a => a.AuthorId == id1 && a.BookId == id2);
         }
 
         public void Remove(int id1, int id2)
         {
-            throw new NotImplementedException();
+            var bookAuthor = GetById(id1, id2);
+            if (bookAuthor == null)
+                throw new InvalidOperationException("Cannot find bookAuthor");
+            _context.Remove(bookAuthor);
+            _context.SaveChanges();
         }
     }
 }

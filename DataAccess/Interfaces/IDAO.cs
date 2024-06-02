@@ -9,10 +9,9 @@ namespace DataAccess.interfaces
 {
     public interface IDAO<T>
     {
-        
         IEnumerable<T> GetAll();
-        IEnumerable<T> FindAsync(Expression<Func<T, bool>> expression);
-        void AddAsync(T entity);
+        IEnumerable<T> Find(Expression<Func<T, bool>> expression);
+        void Add(T entity);
         void Update(T entity);
     }
     public interface IDAOSingle<T>
