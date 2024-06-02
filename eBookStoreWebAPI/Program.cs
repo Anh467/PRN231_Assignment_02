@@ -1,5 +1,9 @@
 
+using DataAccess;
+using DataAccess.Implements;
+using Entity.Models;
 using Microsoft.AspNetCore.OData;
+using QuanLyChiHoi.Repositories.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddOData(option => option.Select().Filter().OrderBy().Expand());
+
+//Repositories
+var services = builder.Services;
+services.AddTransient<IUnitOfWork, UnitOfWork>();   
+services.AddTransient<IGenericRepository<Author>, AuthorRepository>();
+services.AddTransient<IGenericRepository<BookAuthor>, BookAuthorRepository>();
+services.AddTransient<IGenericRepository<Book>, BookRepository>();
+services.AddTransient<IGenericRepository<Publisher>, PublisherRepository>();
+services.AddTransient<IGenericRepository<Role>, RoleRepository>();
+services.AddTransient<IGenericRepository<User>, UserRepository>();
 
 var app = builder.Build();
 
