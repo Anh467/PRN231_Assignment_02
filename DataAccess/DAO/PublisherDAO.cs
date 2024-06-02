@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class PublisherDAO : IDAO<Publisher>, IDAOSingle<Publisher>
+    public class PublisherDAO : IDAOSingle<Publisher>
     {
         private static PublisherDAO instance = null;
         private static readonly object instanceLock = new object();

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implements
 {
-    public class AuthorRepository : IGenericRepository<Author>, IGenericRepositorySingle<Author>
+    public class AuthorRepository : IGenericRepositorySingle<Author>
     {
         public void Add(Author entity)
         {

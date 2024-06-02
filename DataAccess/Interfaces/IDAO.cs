@@ -14,12 +14,20 @@ namespace DataAccess.interfaces
         void Add(T entity);
         void Update(T entity);
     }
-    public interface IDAOSingle<T>
+    /// <summary>
+    /// Using for entity which has a single field is primary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IDAOSingle<T> : IDAO<T>
     {
         T? GetById(int id);
         void Remove(int id);
     }
-    public interface IDAOBoth<T>
+    /// <summary>
+    /// Using for entity which has two fields are primary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IDAOBoth<T> : IDAO<T>
     {
         T? GetById(int id1, int id2);
         void Remove(int id1, int id2);

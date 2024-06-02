@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class BookAuthorDAO : IDAO<BookAuthor>, IDAOBoth<BookAuthor>
+    public class BookAuthorDAO :  IDAOBoth<BookAuthor>
     {
         private static BookAuthorDAO instance = null;
         private static readonly object instanceLock = new object();

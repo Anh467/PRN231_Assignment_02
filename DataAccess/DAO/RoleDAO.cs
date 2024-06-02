@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class RoleDAO: IDAO<Role>, IDAOSingle<Role>
+    public class RoleDAO: IDAOSingle<Role>
     {
         private static RoleDAO instance = null;
         private static readonly object instanceLock = new object();

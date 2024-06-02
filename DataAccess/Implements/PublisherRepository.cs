@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implements
 {
-    public class PublisherRepository : IGenericRepository<Publisher>, IGenericRepositorySingle<Publisher>
+    public class PublisherRepository : IGenericRepositorySingle<Publisher>
     {
         public void Add(Publisher entity)
         {

@@ -9,13 +9,20 @@ namespace QuanLyChiHoi.Repositories.Interface
         void Add(T entity);
         void Update(T entity);
     }
-
-    public interface IGenericRepositorySingle<T> where T : class
+    /// <summary>
+    /// Using for entity which has a single field is primary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IGenericRepositorySingle<T> : IGenericRepository<T> where T : class 
     {
         T? GetById(int id);
         void Remove(int id);
     }
-    public interface IGenericRepositoryBoth<T> where T : class
+    /// <summary>
+    /// Using for entity which has two fields are primary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IGenericRepositoryBoth<T> : IGenericRepository<T> where T : class
     {
         T? GetById(int id1, int id2);
         void Remove(int id, int id2);

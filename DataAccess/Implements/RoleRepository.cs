@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implements
 {
-    public class RoleRepository : IGenericRepository<Role>, IGenericRepositorySingle<Role>
+    public class RoleRepository : IGenericRepositorySingle<Role>
     {
         public void Add(Role entity)
         {
