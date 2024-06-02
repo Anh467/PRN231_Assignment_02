@@ -1,6 +1,7 @@
 ﻿using DataAccess.interfaces;
 using Entity.Database;
 using Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,32 +35,39 @@ namespace DataAccess.DAO
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Users;
         }
 
         public IEnumerable<User> Find(Expression<Func<User, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _context.Users.Where(expression);
         }
 
         public void Add(User entity)
         {
-            throw new NotImplementedException();
+            _context.Users.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(User entity)
         {
-            throw new NotImplementedException();
+            _context.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public User? GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Users.SingleOrDefault(a=> a.UserId == id);  
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var user = GetById(id);
+            if (user == null)
+                throw new InvalidOperationException("User cannot find");
+            _context.Users.Remove(user);
+            _context.SaveChanges();
         }
     }
 }

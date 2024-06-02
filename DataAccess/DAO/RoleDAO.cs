@@ -1,6 +1,7 @@
 ﻿using DataAccess.interfaces;
 using Entity.Database;
 using Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,32 +35,38 @@ namespace DataAccess.DAO
 
         public IEnumerable<Role> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Roles;
         }
 
         public IEnumerable<Role> Find(Expression<Func<Role, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _context.Roles.Where(expression);
         }
 
         public void Add(Role entity)
         {
-            throw new NotImplementedException();
+            _context.Roles.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(Role entity)
         {
-            throw new NotImplementedException();
+            _context.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
         public Role? GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Roles.SingleOrDefault(a=> a.RoleId == id);
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            var role = GetById(id);
+            if (role == null)
+                throw new InvalidOperationException("Role cannot find");
+            _context.Remove(role);
+            _context.SaveChanges();
         }
     }
 }
