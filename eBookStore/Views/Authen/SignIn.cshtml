@@ -1,0 +1,27 @@
+﻿@model Entity.Models.User
+@{
+    var message = ViewBag.Message;
+    
+}
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" method="post">
+            <div class="form-group">
+                <label asp-for="EmailAddress"></label>
+                <input asp-for="EmailAddress" class="form-control" placeholder="Email...">
+                <span asp-validation-for="EmailAddress" class="text-danger d-block mt-1"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" placeholder="Password...">
+                <span asp-validation-for="Password" class="text-danger d-block mt-1"></span>
+            </div>
+            @if(message != null)
+            {
+                <p>@message</p>
+            }
+            <input class="bg-primary" asp-action="SignIn" asp-controller="Authen" type="submit" value="SignIn">
+            <p class="message">Not registered? <a href="~/Authen/SignUp">Create an account</a></p>
+        </form>
+    </div>
+</div>

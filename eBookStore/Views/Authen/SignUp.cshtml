@@ -1,0 +1,34 @@
+﻿@model Entity.Models.User
+<div class="login-page">
+    <div class="form">
+        <form class="register-form" method="post">
+            <div class="form-group">
+                <label asp-for="EmailAddress"></label>
+                <input asp-for="EmailAddress" class="form-control" placeholder="Email...">
+                <span asp-validation-for="EmailAddress" class="text-danger d-block mt-1"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" placeholder="Password...">
+                <span asp-validation-for="Password" class="text-danger d-block mt-1"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="City...">
+                <span asp-validation-for="FirstName" class="text-danger d-block mt-1"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MiddleName"></label>
+                <input asp-for="MiddleName" class="form-control" placeholder="Country...">
+                <span asp-validation-for="MiddleName" class="text-danger d-block mt-1"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" placeholder="Country...">
+                <span asp-validation-for="LastName" class="text-danger d-block mt-1"></span>
+            </div>
+            <input class="color-white bg-primary" asp-action="SignUp" asp-controller="Authen" type="submit" value="SignUp">
+            <p class="message">Already registered? <a href="~/SingIn">Sign In</a></p>
+        </form>
+    </div>
+</div>

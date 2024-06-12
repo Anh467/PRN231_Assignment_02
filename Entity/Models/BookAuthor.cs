@@ -11,7 +11,9 @@ namespace Entity.Models
 {
     public class BookAuthor
     {
+        [Key]
         public int AuthorId { get; set; }
+        [Key]
         public int BookId { get; set; }
         public string? AuthorOrder { get; set; }
         [Range(0,100, ErrorMessage = "Percentage just in range 0 to 100") ]

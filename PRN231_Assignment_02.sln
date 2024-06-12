@@ -5,9 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{3AB98918-D4A3-41B3-B9C7-4DB3D42BAD57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBookStoreWebAPI", "eBookStoreWebAPI\eBookStoreWebAPI.csproj", "{AB0A5DE4-2186-4939-ABDB-7E466107B634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eBookStoreWebAPI", "eBookStoreWebAPI\eBookStoreWebAPI.csproj", "{AB0A5DE4-2186-4939-ABDB-7E466107B634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{64A9EBD8-9352-4231-A761-137B90EF1FA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{64A9EBD8-9352-4231-A761-137B90EF1FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eBookStore", "eBookStore\eBookStore.csproj", "{634FEC29-0D08-4DCD-9375-691C0B501A64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{64A9EBD8-9352-4231-A761-137B90EF1FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64A9EBD8-9352-4231-A761-137B90EF1FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64A9EBD8-9352-4231-A761-137B90EF1FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634FEC29-0D08-4DCD-9375-691C0B501A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634FEC29-0D08-4DCD-9375-691C0B501A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634FEC29-0D08-4DCD-9375-691C0B501A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634FEC29-0D08-4DCD-9375-691C0B501A64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

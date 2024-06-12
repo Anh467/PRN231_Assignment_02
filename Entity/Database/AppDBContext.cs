@@ -25,7 +25,9 @@ namespace Entity.Database
                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MSSQL"));
+            optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer(configuration.GetConnectionString("MSSQL"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

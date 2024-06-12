@@ -24,7 +24,10 @@ services.AddTransient<IGenericRepository<Book>, BookRepository>();
 services.AddTransient<IGenericRepository<Publisher>, PublisherRepository>();
 services.AddTransient<IGenericRepository<Role>, RoleRepository>();
 services.AddTransient<IGenericRepository<User>, UserRepository>();
-
+services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
